@@ -1,26 +1,8 @@
-#include<iostream>
+#include <iostream>
+#include <LnkedList.h>
+
 using namespace std;
-struct node{
-	struct node* next;
-	int data;
-};
-struct node* head=NULL,*temp=NULL,*newn;
-void printll()
-{
-	if(head==NULL)
-	{
-		cout<<"Empty List";
-		return;
-	}
-	else{
-		temp=head;
-		while(temp!=NULL)
-		{
-			cout<<temp->data<<" ";
-			temp=temp->next;
-		}
-	}
-}
+
 int main()
 {
 	int opt;
