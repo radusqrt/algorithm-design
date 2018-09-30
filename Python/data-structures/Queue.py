@@ -6,10 +6,13 @@ class Queue:
         self.items.insert(0, item)
 
     def dequeue(self):
-        return self.items.pop()
+        if self.is_empty():
+            raise Exception("Queue is empty")
+        else:
+            return self.items.pop()
 
     def peek(self):
-        return self.items[0]
+        return self.items[-1]
 
     def size(self):
         return len(self.items)
