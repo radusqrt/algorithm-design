@@ -33,7 +33,6 @@ public:
             delete []arr;
             arr = arr2;
         }
-        
     }
 
 	void pop() {
@@ -60,12 +59,11 @@ public:
 	}
 	
 	~stack() {
-	    delete [] arr;
+	    delete []arr;
 	}
 };
 
 int main()
 {
-
 	return 0;
 }
