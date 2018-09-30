@@ -3,9 +3,11 @@
 
 #include <iostream>
 #define size 100
+
 using namespace std;
 
 int arr[size],front=0,rear=0;
+
 void enque(int value)
 {
 	if(rear==size)
@@ -15,6 +17,7 @@ void enque(int value)
 	}
 	arr[rear++]=value;
 }
+
 int deque()
 {
 	if(front<rear)
@@ -24,6 +27,7 @@ int deque()
 	cout<<"Empty Queue";
 	return -1;
 }
+
 int main(){
 	int t; //defines number of times user wants to test queue
 	cin>>t;
