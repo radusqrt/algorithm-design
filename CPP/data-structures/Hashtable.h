@@ -1,8 +1,3 @@
-/**
- * hashtable.h
- * Copyright Antonio Macovei
- */
-
 #ifndef HASHTABLE_H_
 #define HASHTABLE_H_
 #include <list>
@@ -22,24 +17,17 @@ template <typename Tkey, typename Tvalue> class Hashtable {
 		unsigned int size;  // number of elements in hashtable
 
 	public:
-		// Constructor
 		Hashtable(int hmax, unsigned int (*h)(Tkey)) {
 			HMAX = hmax;
 			H = new std::list<struct elem_info<Tkey, Tvalue> >[hmax];
 			hash = h;
 		}
 
-		// Destructor
 		~Hashtable() {
 			delete[] H;
 		}
 
-		/**
-		 * Adds an element to the hashtable
-		 *
-		 * @param key The key of the element to be added
-		 * @param value The value of the element to be added
-		 */
+		// Adds an element to the hashtable
 		void put(Tkey key, Tvalue value) {
 			unsigned int index = hash(key) % HMAX;
 			bool found = false;
@@ -57,12 +45,7 @@ template <typename Tkey, typename Tvalue> class Hashtable {
 			}
 		}
 
-		/**
-		 * Adds an element to the hashtable
-		 *
-		 * @param key The key of the searched element
-		 * @return the value found with the key
-		 */
+		// Gets an element from the hashtable
 		Tvalue get(Tkey key) {
 			unsigned int index = hash(key) % HMAX;
 			for(auto it : H[index]) {
@@ -73,20 +56,12 @@ template <typename Tkey, typename Tvalue> class Hashtable {
 			return Tvalue();
 		}
 
-		/**
-		 * Gets the hashtable size.
-		 *
-		 * @return Number of elements in the hashtable.
-		 */
+		// Gets the hashtable size.
 		int get_size() {
 			return size;
 		}
 
-		/**
-		 * Gets the hastable capacity.
-		 *
-		 * @return Number of buckets in the hashtable.
-		 */
+		// Gets the hastable capacity.
 		int get_capacity() {
 			return HMAX;
 		}
