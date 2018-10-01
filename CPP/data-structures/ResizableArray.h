@@ -66,16 +66,20 @@ public:
 	}
 
 	// Removes and returns the last element of the array.
-	void remove_last() {
-		if (numElements == 0) return;
+	T remove_last() {
+		if (numElements == 0) return T;
+		T elem = data[numElements];
 		numElements--;
+		return elem;
 	}
 
 	// Removes and returns the first element of the array.
-	void remove_first() {
-		if (numElements == 0) return;
+	T remove_first() {
+		if (numElements == 0) return T;
+		T elem = data[0];
 		shift_elements_left(0);
 		numElements--;
+		return elem;
 	}
 
 	// Checks if the array contains any elements.
@@ -90,7 +94,6 @@ public:
 		return numElements;
 	}
 
-	// Getters
 	T *get_data() {
 		return data;
 	}
